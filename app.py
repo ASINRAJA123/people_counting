@@ -30,6 +30,10 @@ def index():
     today_str = datetime.now().strftime("%Y-%m-%d")
     return render_template(TEMPLATE_FILE, hall_names=list(HALL_CONFIG.keys()), today_date=today_str)
 
+@app.route('/health')
+def health():
+    return jsonify({"status": "ok"})
+
 
 @app.route('/api/data')
 def api_data():
