@@ -2,6 +2,7 @@ import json
 from flask import Flask, render_template, jsonify, request
 from datetime import datetime
 from pymongo import MongoClient
+import os
 
 # --- MongoDB Configuration ---
 MONGO_URI = "mongodb+srv://student:student@cluster0.tt1v1.mongodb.net/"
@@ -79,4 +80,6 @@ def api_data():
 
 if __name__ == '__main__':
     print(f"[INFO] Starting Flask data server at http://0.0.0.0:5002")
-    app.run(host='0.0.0.0', port=5002, debug=False)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host='0.0.0.0', port=port)
+
