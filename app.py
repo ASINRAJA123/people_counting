@@ -73,5 +73,6 @@ def api_data():
 
 
 if __name__ == '__main__':
-    print(f"[INFO] Starting Flask data server at http://0.0.0.0:5002")
-    app.run(host='0.0.0.0', port=5002, debug=False)
+    print(f"[INFO] Starting Flask data server at http://0.0.0.0:80")
+    app.run(host='0.0.0.0', port=80, debug=False)
+
