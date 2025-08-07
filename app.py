@@ -2,7 +2,6 @@ import json
 from flask import Flask, render_template, jsonify, request
 from datetime import datetime
 from pymongo import MongoClient
-import os
 
 # --- MongoDB Configuration ---
 MONGO_URI = "mongodb+srv://student:student@cluster0.tt1v1.mongodb.net/"
@@ -17,7 +16,6 @@ collection = db[COLLECTION_NAME]
 # --- Configuration ---
 HALL_CONFIG = {
     "hall_1": "rtsp://user:bitsathy123@10.10.133.22",
-    "hall_2": "rtsp://gopal:bitsathy%40123@10.10.131.30",
     "hall_3": "rtsp://gopal:bitsathy%40123@10.10.131.10"
 }
 TEMPLATE_FILE = "dashboard.html"
@@ -30,10 +28,6 @@ def index():
     """Renders the main dashboard page."""
     today_str = datetime.now().strftime("%Y-%m-%d")
     return render_template(TEMPLATE_FILE, hall_names=list(HALL_CONFIG.keys()), today_date=today_str)
-
-@app.route('/health')
-def health():
-    return jsonify({"status": "ok"})
 
 
 @app.route('/api/data')
@@ -80,6 +74,4 @@ def api_data():
 
 if __name__ == '__main__':
     print(f"[INFO] Starting Flask data server at http://0.0.0.0:5002")
-    port = int(os.environ.get("PORT", 10000))
-    app.run(host='0.0.0.0', port=port)
-
+    app.run(host='0.0.0.0', port=5002, debug=False)
