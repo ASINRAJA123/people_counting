@@ -16,7 +16,7 @@ collection = db[COLLECTION_NAME]
 # --- Configuration ---
 HALL_CONFIG = {
     "hall_1": "rtsp://user:bitsathy123@10.10.133.22",
-    "hall_3": "rtsp://gopal:bitsathy%40123@10.10.131.10"
+    "hall_2": "rtsp://gopal:bitsathy%40123@10.10.131.30"
 }
 TEMPLATE_FILE = "dashboard.html"
 
